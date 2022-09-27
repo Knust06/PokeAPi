@@ -9,14 +9,14 @@ import Foundation
 
 class ViewModel : ObservableObject {
     
-    var urlAddr : String = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+   // var urlAddr : String = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
     
     @Published var items : [PokemonModel] = []
     
     init () {
-        fetchPokemons()
+        fetchPokemons(urlAddr: "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
     }
-    func fetchPokemons(){
+    func fetchPokemons(urlAddr:String){
             
             guard let url = URL(string: urlAddr) else {
                 print("URL NOT FOUND")
